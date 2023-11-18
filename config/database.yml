@@ -21,7 +21,7 @@ default: &default
 development:
   adapter: postgresql
   encoding: unicode
-  database: blog-app
+  database: blog-app2
   pool: 5
   username: jose
   password: jose123
@@ -52,7 +52,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: blog-app_test
+  database: blog-app2_test
   username: jose
   password: jose123
   host: localhost
@@ -78,6 +78,6 @@ test:
 #
 production:
   <<: *default
-  database: blog-app_production
-  username: blog-app
+  database: blog-app2_production
+  username: blog-app2
   password: <%= ENV["BLOG_APP_DATABASE_PASSWORD"] %>
