@@ -1,7 +1,7 @@
 <a name="readme-top"></a>
 
 <div align="center">
-  <h3><b>Blog App with Rails</b></h3>
+  <h3><b>Blog App with Ruby on Rails</b></h3>
 </div>
 
 # 📗 Table of Contents
