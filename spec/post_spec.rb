@@ -23,10 +23,11 @@ RSpec.describe Post, type: :model do
   describe '#recent_comments' do
     let!(:user) { User.create!(name: 'Test User', posts_counter: 0) }
     let!(:post) { Post.create!(title: 'Test Post', author: user, comments_counter: 0, likes_counter: 0) }
+
     it 'returns the five most recent comments' do
-      Comment.create!(text: 'Old Comment', user:, post:, created_at: 6.days.ago)
+      Comment.create!(text: 'Old Comment', user: user, post: post, created_at: 6.days.ago)
       recent_comments = 5.times.map do |i|
-        Comment.create!(text: "Comment #{i}", user:, post:, created_at: i.days.ago)
+        Comment.create!(text: "Comment #{i}", user: user, post: post, created_at: i.days.ago)
       end
 
       expect(post.recent_comments).to match_array(recent_comments)
