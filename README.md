@@ -65,7 +65,7 @@ Created using Ruby!
 
 ## 👥 Authors <a name="authors"></a>
 
-👤 **José Berbesi**
+👤 **José Luis Berbesi Lopera**
 
 - [GitHub](https://github.com/jlberbesi)
 - [Twitter](https://twitter.com/imberbesi)
