@@ -1,7 +1,11 @@
 <div class="user-profile">
   <div class="list">
     <div class="user-image">
-      <img src="path_to_default_user_image.jpg" alt="User Image">
+      <% if @user.photo.present? %>
+        <%= image_tag(@user.photo, alt: 'User Image') %>
+      <% else %>
+        <%= image_tag('path_to_default_user_image.jpg', alt: 'User Image') %>
+      <% end %>
     </div>
     <div class="user-container">
       <div class="user-name">

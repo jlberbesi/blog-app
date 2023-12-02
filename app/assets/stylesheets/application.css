@@ -82,7 +82,7 @@ body {
   padding-bottom: 10px;
 }
 
-.user-posts .post-content {
+.user-posts {
   margin-top: 20px;
 }
 
@@ -97,7 +97,7 @@ body {
   background-color: #f9f9f9;
 }
 
-.post-detail .post-content {
+.post-detail {
   margin-top: 20px;
 }
 
@@ -192,4 +192,33 @@ h1 {
 .comments2 li {
   font-size: 16px;
   margin-bottom: 10px;
+}
+
+.comments3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  margin-bottom: 10px;
+}
+
+.comments3 h1 {
+  margin: 0;
+  font-size: 35px;
+  color: #333;
+  flex: 1;
+}
+
+.comments3 .post-details {
+  margin: 0;
+  font-size: 15px;
+  color: #666;
+  white-space: nowrap;
+}
+
+.post-content2 {
+  margin: 26px;
+  font-size: 25px;
+  color: #333;
+  flex: 1;
 }
