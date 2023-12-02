@@ -6,23 +6,17 @@
 
 # 📗 Table of Contents
 
-- [📖 About the Project]
-  - [🚀 Key Features]
-  - [🛠 Built With]
-    - [Tech Stack]
-    - [🚀 Video Link]
-- [💻 Getting Started]
-  - [Setup]
-  - [Prerequisites]
-  - [Install]
-  - [Usage]
-  - [Run tests]
-- [👥 Authors]
-- [🔭 Future Features]
-- [🤝 Contributing]
-- [⭐️ Show your support]
-- [🙏 Acknowledgments]
-- [📝 License]
+- [📖 About the Project](#about-project)
+  - [🚀 Key Features](#key-features)
+  - [🛠 Built With](#built-with)
+    - [Tech Stack](#tech-stack)
+- [💻 Getting Started](#getting-started)
+- [👥 Authors](#authors)
+- [🔭 Future Features](#future-features)
+- [🤝 Contributing](#contributing)
+- [⭐️ Show your support](#support)
+- [🙏 Acknowledgments](#acknowledgements)
+- [📝 License](#license)
 
 # 📖 Blogger Rails <a name="about-project"></a>
 
