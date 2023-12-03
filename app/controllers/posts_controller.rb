@@ -7,8 +7,7 @@ class PostsController < ApplicationController
     @post = @user.posts.build
   end
 
-  def show
-  end
+  def show; end
 
   def create
     user = User.find_by(id: params[:user_id]) || current_user
