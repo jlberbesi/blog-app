@@ -6,10 +6,12 @@
   </div> 
  
   <p class="post-content2"><%= @post.text %></p>
+   
 </ul>
+<%= button_to 'Like', like_post_path(@post), method: :put, class: "like-button" %>
   
-  <ul class="comments2">
   <h2>Comments</h2>
+  <ul class="comments">
     <% @post.comments.each do |comment| %>
       <li>
         <strong><%= comment.user.name %>:</strong>
@@ -17,5 +19,17 @@
       </li>
     <% end %>
   </ul>
-  <%= link_to 'Back', request.referer || root_path %>
+
+  
+  <%= form_with(model: [@post, Comment.new]) do |form| %>
+    <div class="field">
+      <%= form.label :text, "New Comment" %>
+      <%= form.text_area :text %>
+    </div>
+    <div class="actions">
+      <%= form.submit "Add Comment" %>
+    </div>
+  <% end %>
+
+  <%= link_to 'Back', session[:return_to] || user_posts_path(@post.author), class: "btn btn-secondary" %>
 </div>
