@@ -1,15 +1,13 @@
 <div class="post">
 <ul class="comments2">
 <div class="comments3">
-<h1><%= @post.title %> by <span class="username"><%= @post.author.name %></span></h1>
- <p class="post-details">Comments: <%= @post.comments.count %>, Likes: <%= @post.likes_counter %></p>
+  <h1><%= @post.title %> by <span class="username"><%= @post.author.name %></span></h1>
+  <p class="post-details">Comments: <%= @post.comments.count %>, Likes: <%= @post.likes_counter %></p>
   </div> 
- 
   <p class="post-content2"><%= @post.text %></p>
-   
 </ul>
-<%= button_to 'Like', like_post_path(@post), method: :put, class: "like-button" %>
-  
+  <%= button_to 'Like', post_likes_path(@post), method: :post, class: "like-button" %>
+
   <h2>Comments</h2>
   <ul class="comments">
     <% @post.comments.each do |comment| %>
@@ -20,16 +18,7 @@
     <% end %>
   </ul>
 
-  
-  <%= form_with(model: [@post, Comment.new]) do |form| %>
-    <div class="field">
-      <%= form.label :text, "New Comment" %>
-      <%= form.text_area :text %>
-    </div>
-    <div class="actions">
-      <%= form.submit "Add Comment" %>
-    </div>
-  <% end %>
+  <%= link_to 'Add Comment', new_post_comment_path(@post), class: "btn btn-primary" %>
 
   <%= link_to 'Back', session[:return_to] || user_posts_path(@post.author), class: "btn btn-secondary" %>
 </div>

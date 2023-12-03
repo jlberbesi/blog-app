@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: %i[show edit update destroy like]
+  before_action :set_post, only: %i[show edit update destroy]
 
   def new
     @user = User.find_by(id: params[:user_id]) || current_user
@@ -8,7 +8,6 @@ class PostsController < ApplicationController
   end
 
   def show
-    @comment = Comment.new
   end
 
   def create
@@ -36,14 +35,6 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     redirect_to user_posts_path(current_user), notice: 'Post was successfully destroyed.'
-  end
-
-  def like
-    if @post.increment!(:likes_counter)
-      redirect_to @post, notice: 'You liked the post!'
-    else
-      redirect_to root_path, alert: 'Post not found.'
-    end
   end
 
   def index
