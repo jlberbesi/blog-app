@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'UserPostsIndex', type: :feature do
   before do
     @user = User.create!(name: 'User', email: 'user@example.com')
-    
+
     5.times { |i| @user.posts.create!(title: "Post #{i + 1}", text: "This is post #{i + 1}") }
   end
 
@@ -11,7 +11,7 @@ RSpec.describe 'UserPostsIndex', type: :feature do
     visit user_posts_path(@user)
     @user.posts.each do |post|
       expect(page).to have_content(post.title)
-      expect(page).to have_content(post.text[0..20]) 
+      expect(page).to have_content(post.text[0..20])
     end
   end
 

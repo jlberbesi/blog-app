@@ -11,7 +11,7 @@ RSpec.describe 'PostShow', type: :feature do
     visit post_path(@post)
     expect(page).to have_content(@post.title)
     expect(page).to have_content(@post.text)
-    expect(page).to have_content("Comments: ")
-    expect(page).to have_content("Likes: ")
+    expect(page).to have_content('Comments: ')
+    expect(page).to have_content('Likes: ')
   end
 end

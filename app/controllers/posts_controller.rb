@@ -44,8 +44,8 @@ class PostsController < ApplicationController
       @posts = Post.all.includes(:comments).order('comments.created_at DESC')
     end
   end
-  
-  
+
+
 
   private
 
