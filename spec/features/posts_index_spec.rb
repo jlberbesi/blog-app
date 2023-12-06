@@ -5,7 +5,6 @@ RSpec.describe 'UserPostsIndex', type: :feature do
   before do
     @user = User.create!(name: 'User', email: 'user@example.com', bio: 'This is a user bio.', photo: 'https://vivolabs.es/wp-content/uploads/2022/03/perfil-hombre-vivo.png')
 
-    # Crear más publicaciones de las que se pueden mostrar en una página
     10.times { |i| @user.posts.create!(title: "Post #{i + 1}", text: "This is post #{i + 1}") }
 
     visit user_posts_path(@user)

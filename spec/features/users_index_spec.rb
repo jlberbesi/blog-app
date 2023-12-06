@@ -26,7 +26,6 @@ RSpec.describe 'UsersIndex', type: :feature do
     end
   end
 
-
   it 'shows the number of posts each user has written' do
     expect(page).to have_content('Number of posts: 3', count: 1)
     expect(page).to have_content('Number of posts: 2', count: 1)
