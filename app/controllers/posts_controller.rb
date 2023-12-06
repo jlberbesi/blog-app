@@ -39,11 +39,12 @@ class PostsController < ApplicationController
   def index
     if params[:user_id]
       @user = User.find_by(id: params[:user_id])
-      @posts = @user ? @user.posts.includes(:comments).order('comments.created_at DESC') : Post.none
+      @posts = @user ? @user.posts.includes(:comments).order('comments.created_at DESC').page(params[:page]).per(5) : Post.none
     else
-      @posts = Post.all.includes(:comments).order('comments.created_at DESC')
+      @posts = Post.all.includes(:comments).order('comments.created_at DESC').page(params[:page]).per(5)
     end
   end
+
 
   private
 
