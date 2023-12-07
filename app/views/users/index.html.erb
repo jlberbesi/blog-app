@@ -14,6 +14,7 @@
           <h2 class="user-name"><%= link_to user.name, user_path(user) %></h2>
           <p class="post-count">Number of posts: <%= @posts_count[user.id] || 0 %></p>
         </div>
+        
       </li>
     </div>
   <% end %>
