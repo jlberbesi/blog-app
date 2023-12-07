@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  load_and_authorize_resource except: [:new, :create]
+  load_and_authorize_resource except: %i[new create]
 
   def new
     @user = User.find_by(id: params[:user_id]) || current_user
