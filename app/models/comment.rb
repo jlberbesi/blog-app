@@ -10,6 +10,6 @@ class Comment < ApplicationRecord
   end
 
   def as_json(options = {})
-    super(options.merge(only: [:id, :text], include: { user: { only: :name } }))
+    super(options.merge(only: %i[id text], include: { user: { only: :name } }))
   end
 end
