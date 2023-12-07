@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
-  before_action :set_post
+  before_action :set_post, only: [:new, :create]
+  load_and_authorize_resource
 
   def new
     @comment = Comment.new
@@ -14,6 +15,13 @@ class CommentsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    @post = @comment.post
+    @comment.destroy
+    redirect_to post_path(@post), notice: 'Comment was successfully deleted.'
   end
 
   private

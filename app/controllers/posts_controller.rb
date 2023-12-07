@@ -1,23 +1,28 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: %i[show edit update destroy]
+  load_and_authorize_resource except: [:new, :create]
 
   def new
     @user = User.find_by(id: params[:user_id]) || current_user
-
-    @post = @user.posts.build
+    if @user != current_user && !current_user.admin?
+      redirect_to root_path, alert: 'You are not authorized to create a post for this user.'
+    else
+      @post = @user.posts.build
+    end
   end
 
   def show; end
 
   def create
-    user = User.find_by(id: params[:user_id]) || current_user
-
-    @post = user.posts.build(post_params)
-
-    if @post.save
-      redirect_to post_path(@post), notice: 'Post was successfully created.'
+    @user = User.find_by(id: params[:user_id]) || current_user
+    if @user != current_user && !current_user.admin?
+      redirect_to root_path, alert: 'You are not authorized to create a post for this user.'
     else
-      render :new
+      @post = @user.posts.build(post_params)
+      if @post.save
+        redirect_to post_path(@post), notice: 'Post was successfully created.'
+      else
+        render :new
+      end
     end
   end
 
@@ -33,7 +38,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to user_posts_path(current_user), notice: 'Post was successfully destroyed.'
+    redirect_back(fallback_location: users_path, notice: 'Post was successfully destroyed.')
   end
 
   def index
