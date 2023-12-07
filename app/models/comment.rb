@@ -8,4 +8,8 @@ class Comment < ApplicationRecord
   def update_comments_counter
     post.update(comments_counter: post.comments.count)
   end
+
+  def as_json(options = {})
+    super(options.merge(only: [:id, :text], include: { user: { only: :name } }))
+  end
 end
